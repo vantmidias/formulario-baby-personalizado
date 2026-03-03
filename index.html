@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pulseira Baby Personalizada ✨ | Empório Glam</title>
+    <meta name="description"
+        content="Pulseira Baby Personalizada com gravação do nome. Banho Ouro 18k ou Prata 50. Uma lembrança linda para o seu bebê!">
+    <meta property="og:title" content="Pulseira Baby Personalizada ✨">
+    <meta property="og:description"
+        content="Uma lembrança linda e especial para o seu bebê! Pulseira com gravação do nome.">
+    <meta property="og:image" content="imagens/pulseira-baby-produto.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- ========== TELA 1: Boas-vindas + Filtro de Idade ========== -->
+        <section class="screen active" id="screen-1">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/pulseira-baby-produto.jpg" alt="Pulseira Baby Personalizada"
+                        class="product-image">
+                </div>
+                <div class="text-content">
+                    <h1 class="screen-title">Pulseira Baby Personalizada <span class="sparkle">✨</span></h1>
+                    <p class="screen-subtitle">Uma lembrança linda e especial para o seu bebê!</p>
+                    <div class="notice">
+                        <span class="notice-icon">⚠️</span>
+                        <span>Essa pulseirinha é bem pequenininha, feita especialmente para recém-nascidos.</span>
+                    </div>
+                    <p class="question-label">Qual a idade do bebê?</p>
+                    <div class="options-group" id="options-idade">
+                        <button class="option-btn" data-value="ainda_nao_nasceu" data-next="screen-2a"
+                            onclick="selectOption('idade_bebe', this)">
+                            <span class="option-emoji">👶</span>
+                            <span class="option-text">Ainda não nasceu</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn" data-value="1_a_4_meses" data-next="screen-2a"
+                            onclick="selectOption('idade_bebe', this)">
+                            <span class="option-emoji">👶</span>
+                            <span class="option-text">1 a 4 meses</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn" data-value="mais_4_meses" data-next="screen-2b"
+                            onclick="selectOption('idade_bebe', this)">
+                            <span class="option-emoji">👶</span>
+                            <span class="option-text">+ de 4 meses</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========== TELA 2A: Apresentação Pulseira + Decisão ========== -->
+        <section class="screen" id="screen-2a">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/pulseira-baby-banhos.png" alt="Pulseira Baby - Banho Ouro e Prata"
+                        class="product-image">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <h2 class="screen-title">Pulseira Baby <span class="price-tag">R$79,90</span></h2>
+                    <p class="screen-subtitle" style="line-height: 1.8;">
+                        Produto Hipoalergênico<br>
+                        1 ano de garantia<br>
+                        Entrega rápida em Goiânia
+                    </p>
+                    <div class="notice">
+                        <span class="notice-icon">⚠️</span>
+                        <span>O prazo é até 2 dias úteis para a pulseirinha ficar pronta.</span>
+                    </div>
+
+                    <p class="screen-subtitle" style="font-weight:700;">Comece a personalizar a sua, ou nos chame no
+                        WhatsApp!</p>
+                    <div class="options-group" id="options-decisao-a">
+                        <button class="option-btn primary" data-value="personalizar" data-next="screen-3a"
+                            onclick="selectOption('decisao', this, 'pulseira_baby')">
+                            <span class="option-emoji">✨</span>
+                            <span class="option-text">Personalizar agora</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn secondary" data-value="whatsapp" data-next="screen-dados"
+                            onclick="selectOption('decisao', this, 'pulseira_baby')">
+                            <span class="option-emoji">📱</span>
+                            <span class="option-text">Chamar no WhatsApp</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 3A: Escolha do Banho ========== -->
+        <section class="screen" id="screen-3a">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/pulseira-baby-banhos.png" alt="Opções de banho" class="product-image">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <h2 class="screen-title">Qual banho você prefere?</h2>
+                    <div class="options-group" id="options-banho">
+                        <button class="option-btn gold-option" data-value="ouro_18k" data-next="screen-4a"
+                            onclick="selectOption('banho', this)">
+                            <span class="option-emoji">⭐</span>
+                            <span class="option-text">Ouro 18k <small>(dourado)</small></span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn silver-option" data-value="prata_50" data-next="screen-4a"
+                            onclick="selectOption('banho', this)">
+                            <span class="option-emoji">⭐</span>
+                            <span class="option-text">Prata 50 <small>(prateado)</small></span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 4A: Nome para Gravação ========== -->
+        <section class="screen" id="screen-4a">
+            <div class="screen-content">
+                <div class="text-content centered">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <div class="icon-circle">✍️</div>
+                    <h2 class="screen-title">Qual nome quer gravar na pulseirinha?</h2>
+                    <div class="input-group">
+                        <input type="text" id="input-nome-gravacao" class="form-input"
+                            placeholder="Ex: Maria, João Pedro" maxlength="20" autocomplete="off">
+                        <small class="input-hint">Máximo 20 caracteres</small>
+                    </div>
+                    <button class="continue-btn" id="btn-nome-gravacao" onclick="submitNomeGravacao()" disabled>
+                        Continuar
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== UPSELL: Colar Maternidade após pulseira ========== -->
+        <section class="screen" id="screen-upsell-colar">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/colar-maternidade-produto.png" alt="Colar Maternidade" class="product-image">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <div class="crosssell-badge">🎉 Super Oportunidade!</div>
+                    <h2 class="screen-title">Que tal presentear a Mamãe também?</h2>
+                    <p class="screen-subtitle" style="line-height: 1.8; text-align: left;">
+                        <strong>Banho:</strong> Ouro 18k ou Prata 50<br>
+                        <strong>Tamanho:</strong> Corrente de 40cm + 5cm extensão<br>
+                        <strong>Personalize:</strong> Nome, data, peso e tamanho
+                    </p>
+                    <h3 class="screen-title" style="margin-top:0.5rem;">
+                        Colar Maternidade
+                        <span class="price-tag"
+                            style="text-decoration: line-through; opacity: 0.7; font-size: 0.8rem;">R$99,90</span>
+                        <span class="price-tag">R$79,90</span>
+                    </h3>
+                    <div class="options-group" id="options-upsell">
+                        <button class="option-btn primary" data-value="upsell_sim" data-next="screen-3b-banho"
+                            onclick="formData.produto_extra = 'colar_maternidade'; selectOption('upsell', this)">
+                            <span class="option-emoji">💝</span>
+                            <span class="option-text">Quero o colar também</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn secondary" data-value="upsell_nao" data-next="screen-dados"
+                            onclick="selectOption('upsell', this)">
+                            <span class="option-emoji">👶</span>
+                            <span class="option-text">Quero só a pulseira</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 2B: Cross-sell Colar Maternidade ========== -->
+        <section class="screen" id="screen-2b">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/colar-maternidade-produto.png" alt="Colar Maternidade Personalizado"
+                        class="product-image">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <div class="crosssell-badge">💡 Sugestão especial</div>
+                    <h2 class="screen-title">Infelizmente a pulseirinha não vai servir 😔</h2>
+                    <p class="screen-subtitle">Mas você pode personalizar o <strong>Colar Maternidade</strong> para a
+                        mamãe com:</p>
+                    <ul class="feature-list">
+                        <li><span>✨</span> Nome do bebê</li>
+                        <li><span>📅</span> Data de nascimento</li>
+                        <li><span>⚖️</span> Peso</li>
+                        <li><span>📏</span> Tamanho</li>
+                    </ul>
+                    <p class="highlight-text">Uma lembrança linda para a mamãe usar! 💕</p>
+                    <div class="options-group" id="options-decisao-b">
+                        <button class="option-btn primary" data-value="conhecer_colar" data-next="screen-3b"
+                            onclick="selectOption('decisao', this, 'colar_maternidade')">
+                            <span class="option-emoji">💕</span>
+                            <span class="option-text">Quero conhecer o colar</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn secondary" data-value="sem_interesse" data-next="screen-sem-interesse"
+                            onclick="selectOption('decisao', this, 'sem_interesse')">
+                            <span class="option-emoji">😔</span>
+                            <span class="option-text">Não tenho interesse</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 3B: Detalhes do Colar ========== -->
+        <section class="screen" id="screen-3b">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/colar-maternidade-produto.png" alt="Colar Maternidade" class="product-image">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <h2 class="screen-title">Colar Maternidade <span class="price-tag">R$99,90</span></h2>
+                    <div class="notice">
+                        <span class="notice-icon">⚠️</span>
+                        <span>O prazo é até 2 dias úteis para o colar ficar pronto.</span>
+                    </div>
+                    <div class="specs-card" style="margin-top: -0.3rem;">
+                        <div class="spec-item">
+                            <span class="spec-label"><strong>Banho</strong></span>
+                            <span class="spec-value">Ouro 18k ou Prata 50</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label"><strong>Tamanho</strong></span>
+                            <span class="spec-value">Corrente de 40cm + 5cm extensão</span>
+                        </div>
+                    </div>
+                    <p class="screen-subtitle" style="font-weight:700; margin-top: 1.5rem;">Comece a personalizar a sua,
+                        ou nos chame no
+                        WhatsApp!</p>
+                    <div class="options-group" id="options-decisao-colar">
+                        <button class="option-btn primary" data-value="personalizar_colar" data-next="screen-3b-banho"
+                            onclick="selectOption('decisao', this, 'colar_maternidade')">
+                            <span class="option-emoji">✨</span>
+                            <span class="option-text">Quero personalizar</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn secondary" data-value="whatsapp" data-next="screen-dados"
+                            onclick="selectOption('decisao', this, 'colar_maternidade')">
+                            <span class="option-emoji">📱</span>
+                            <span class="option-text">Personalizar no WhatsApp</span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 3B-BANHO: Escolha do Banho do Colar ========== -->
+        <section class="screen" id="screen-3b-banho">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/colar-maternidade-banho.png" alt="Colar Maternidade - Opções de banho"
+                        class="product-image" style="object-position: center 80%;">
+                </div>
+                <div class="text-content">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <h2 class="screen-title">Qual banho você prefere?</h2>
+                    <div class="options-group" id="options-banho-colar">
+                        <button class="option-btn gold-option" data-value="ouro_18k" data-next="screen-4b"
+                            onclick="selectOption('banho_colar', this)">
+                            <span class="option-emoji">⭐</span>
+                            <span class="option-text">Ouro 18k <small>(dourado)</small></span>
+                            <span class="option-check">✓</span>
+                        </button>
+                        <button class="option-btn silver-option" data-value="prata_50" data-next="screen-4b"
+                            onclick="selectOption('banho_colar', this)">
+                            <span class="option-emoji">⭐</span>
+                            <span class="option-text">Prata 50 <small>(prateado)</small></span>
+                            <span class="option-check">✓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA 4B: Personalização do Colar ========== -->
+        <section class="screen" id="screen-4b">
+            <div class="screen-content">
+                <div class="image-wrapper">
+                    <img src="imagens/Colar-maternidade-desenho.png" alt="Colar Maternidade Personalizado"
+                        class="product-image">
+                </div>
+                <div class="text-content centered">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <h2 class="screen-title">Personalize o colar 💕</h2>
+                    <p class="screen-subtitle">Preencha os dados para gravar no colar:</p>
+                    <form id="form-colar" class="form-fields" onsubmit="submitColarData(event)">
+                        <div class="input-group">
+                            <label for="input-nome-bebe" class="input-label">Nome do bebê</label>
+                            <input type="text" id="input-nome-bebe" class="form-input" placeholder="Ex: Maria"
+                                maxlength="20" autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label for="input-data-nasc" class="input-label">Data de nascimento</label>
+                            <input type="text" id="input-data-nasc" class="form-input" placeholder="Ex: 15/03/2025"
+                                autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label for="input-peso" class="input-label">Peso</label>
+                            <input type="text" id="input-peso" class="form-input" placeholder="Ex: 3,2kg"
+                                autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label for="input-tamanho" class="input-label">Tamanho</label>
+                            <input type="text" id="input-tamanho" class="form-input" placeholder="Ex: 49cm"
+                                autocomplete="off">
+                        </div>
+                        <button type="submit" class="continue-btn">
+                            Continuar
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA SEM INTERESSE: Redirect ao site ========== -->
+        <section class="screen" id="screen-sem-interesse">
+            <div class="screen-content">
+                <div class="text-content centered">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <div class="icon-circle">🛍️</div>
+                    <h2 class="screen-title">Tudo bem! 💛</h2>
+                    <p class="screen-subtitle">Temos muitas outras opções lindas de joias personalizadas esperando por
+                        você!</p>
+                    <p class="screen-subtitle">Confira nosso catálogo completo:</p>
+                    <a href="https://www.emporioglam.com.br/personalizados-1?page=1" class="continue-btn"
+                        target="_blank" style="text-decoration:none;">
+                        🛒 Ver mais opções no site
+                        <span class="btn-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA DADOS: Coleta de Informações ========== -->
+        <section class="screen" id="screen-dados">
+            <div class="screen-content">
+                <div class="text-content centered">
+                    <button class="back-btn" onclick="goBack()">← Voltar</button>
+                    <div class="icon-circle">💕</div>
+                    <h2 class="screen-title">Preencha seus dados para finalizar!</h2>
+                    <form id="form-dados" class="form-fields" onsubmit="submitForm(event)">
+                        <div class="input-group">
+                            <label for="input-nome" class="input-label">Seu nome</label>
+                            <input type="text" id="input-nome" class="form-input" placeholder="Seu nome completo"
+                                required autocomplete="name">
+                        </div>
+                        <div class="input-group">
+                            <label for="input-telefone" class="input-label">WhatsApp</label>
+                            <input type="tel" id="input-telefone" class="form-input" placeholder="(00) 00000-0000"
+                                required autocomplete="tel">
+                        </div>
+                        <button type="submit" class="continue-btn submit-btn" id="btn-submit">
+                            <span class="btn-loading hidden" id="btn-loading">
+                                <span class="spinner"></span>Enviando...
+                            </span>
+                            <span class="btn-text" id="btn-text">
+                                Finalizar pedido
+                                <span class="btn-arrow">→</span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TELA CONFIRMAÇÃO ========== -->
+        <section class="screen" id="screen-confirmacao">
+            <div class="screen-content">
+                <div class="text-content centered">
+                    <div class="success-animation">
+                        <div class="checkmark-circle">
+                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                <circle class="checkmark-bg" cx="26" cy="26" r="25" fill="none" />
+                                <path class="checkmark-path" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h2 class="screen-title">Perfeito! 💕</h2>
+                    <p class="screen-subtitle" id="confirmacao-texto"></p>
+                    <a href="#" class="whatsapp-btn" id="whatsapp-link" target="_blank">
+                        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Ir para o WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Brand footer -->
+    <footer class="brand-footer">
+        <strong><a href="https://www.emporioglam.com.br" target="_blank"
+                style="text-decoration:none;color:inherit;"><span>Empório Glam</span> · Semijoias
+                Personalizadas</a></strong>
+        <span class="footer-address"><a href="https://maps.app.goo.gl/UFKia2ZikBeWrzzt5" target="_blank"
+                style="text-decoration:none;color:inherit;">📍 Eldorado, Goiânia - GO</a></span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
