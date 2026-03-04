@@ -112,6 +112,11 @@ function selectOption(variable, button, produto) {
         formData.produto = produto;
     }
 
+    // Pixel: track product selection
+    if (variable === 'decisao' && (value === 'personalizar' || value === 'whatsapp')) {
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'ProdutoEscolhido', { produto: formData.produto, decisao: value });
+    }
+
     // Visual feedback - mark selected
     const group = button.closest('.options-group');
     group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
@@ -149,6 +154,10 @@ function submitNomeGravacao() {
     if (val.length === 0) return;
 
     formData.nome_gravacao = val;
+
+    // Pixel: personalization complete
+    if (typeof fbq !== 'undefined') fbq('trackCustom', 'PersonalizacaoCompleta', { nome: val, produto: 'pulseira_baby' });
+
     navigateTo('screen-upsell-colar');
 }
 
@@ -244,6 +253,9 @@ async function submitForm(e) {
         console.warn('Webhook error (continuing anyway):', err);
     }
 
+    // Fire pixel lead events
+    fireLeadPixelEvents();
+
     // Show confirmation
     showConfirmation();
 }
@@ -300,6 +312,20 @@ async function sendWebhook() {
     }
 
     return response;
+}
+
+// Pixel: fire lead events after successful webhook
+function fireLeadPixelEvents() {
+    if (typeof fbq === 'undefined') return;
+    fbq('trackCustom', 'LeadCompleto', { produto: formData.produto });
+    if (formData.produto === 'pulseira_baby') {
+        fbq('trackCustom', 'LeadPulseira', { banho: formData.banho, nome: formData.nome_gravacao });
+    } else {
+        fbq('trackCustom', 'LeadColar', { banho: formData.banho_colar, nome: formData.colar_nome_bebe });
+    }
+    if (formData.produto_extra === 'quero_colar') {
+        fbq('trackCustom', 'LeadColar', { banho: formData.banho_colar, nome: formData.colar_nome_bebe, via_upsell: true });
+    }
 }
 
 // === HELPERS ===
