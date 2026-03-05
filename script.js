@@ -286,7 +286,7 @@ async function sendWebhook() {
     // Build tags array based on lead selections
     const tags = [];
     if (formData.idade_bebe === 'mais_4_meses') {
-        tags.push('lead_mais_4_meses');
+        tags.push('lead-mais-4-meses');
     }
 
     const payload = {
