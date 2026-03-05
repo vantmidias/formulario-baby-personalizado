@@ -283,6 +283,12 @@ document.head.appendChild(shakeStyle);
 // === WEBHOOK ===
 
 async function sendWebhook() {
+    // Build tags array based on lead selections
+    const tags = [];
+    if (formData.idade_bebe === 'mais_4_meses') {
+        tags.push('lead_mais_4_meses');
+    }
+
     const payload = {
         idade_bebe: formData.idade_bebe,
         produto: formData.produto,
@@ -297,6 +303,7 @@ async function sendWebhook() {
         colar_peso: formData.colar_peso || '',
         colar_tamanho: formData.colar_tamanho || '',
         produto_extra: formData.produto_extra || '',
+        tags: tags,
         origem: 'formulario_baby_personalizado',
         data: new Date().toISOString(),
     };
